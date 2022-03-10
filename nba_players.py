@@ -2,7 +2,6 @@ import json
 from urllib.request import urlopen
 from collections import defaultdict
 
-
 def search_players(total):
     #Gather data from HTTP request 
     url = "https://mach-eight.uc.r.appspot.com/"
@@ -20,14 +19,17 @@ def search_players(total):
                 for j in default[total - height]
                     for i in default[height]
                         if i < j
-    ]
-    return results
+    ] 
+    return results # Algorithm will have linear time if the input has no players with the same height, that is the best case time complexity, the worst one is going to be O(n²)
 
-#Input the value, execute the function, recognize matches.
-height_input = int(input("Height value: "))
-result = search_players(height_input)
+#Input the integer value, execute the function, recognize matches.
+try:
+    height_input = int(input("Height value: "))
+    result = search_players(height_input)
+    if len(result) == 0: 
+        print("No matches found \n")
+    else:
+        print(result) 
+except ValueError:
+    print("Oops!  Please insert a valid number")
 
-if len(result) == 0: 
-    print("No matches found \n")
-else:
-    print(result) # Algorithm will have linear time if the input has no players with the same height, that is the best case time complexity, the worst one is going to be O(n²)
