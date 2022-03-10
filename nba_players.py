@@ -20,7 +20,7 @@ def search_players(total):
                     for i in default[height]
                         if i < j
     ] 
-    return results # Algorithm will have linear time if the input has no players with the same height, that is the best case time complexity, the worst one is going to be O(n²)
+    return results
 
 #Input the value, execute the function, recognize matches.
 
